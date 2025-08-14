@@ -1,0 +1,77 @@
+2025-06-27 06:43:52,015:DEBUG:certbot._internal.main:certbot version: 4.1.1
+2025-06-27 06:43:52,016:DEBUG:certbot._internal.main:Location of certbot entry point: /usr/local/bin/certbot
+2025-06-27 06:43:52,016:DEBUG:certbot._internal.main:Arguments: ['--register-unsafely-without-email', '--eab-kid', 'd49711d9-1a7b-453d-b0c4-6df5892b37ee', '--eab-hmac-key', 'jadsi3wpI6T0na9ihr4_8uBpXOxJIHPPYPDqlgUGESUE1OBK1gCI6HkN7yJ0TViuf2K4hdPzGp7Yz9QFqHZcZw', '--server', 'https://acme.godaddy.com/v1/acme/directory']
+2025-06-27 06:43:52,016:DEBUG:certbot._internal.main:Discovered plugins: PluginsRegistry(PluginEntryPoint#manual,PluginEntryPoint#null,PluginEntryPoint#standalone,PluginEntryPoint#webroot)
+2025-06-27 06:43:52,032:DEBUG:certbot._internal.log:Root logging level set at 30
+2025-06-27 06:43:52,064:DEBUG:acme.client:Sending GET request to https://acme.godaddy.com/v1/acme/directory.
+2025-06-27 06:43:52,066:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): acme.godaddy.com:443
+2025-06-27 06:43:52,776:DEBUG:urllib3.connectionpool:https://acme.godaddy.com:443 "GET /v1/acme/directory HTTP/1.1" 200 562
+2025-06-27 06:43:52,777:DEBUG:acme.client:Received response:
+HTTP 200
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+content-type: application/json;charset=UTF-8
+content-length: 562
+date: Fri, 27 Jun 2025 06:43:51 GMT
+
+{
+  "newNonce": "https://acme.godaddy.com/v1/acme/new-nonce",
+  "newAccount": "https://acme.godaddy.com/v1/acme/new-account",
+  "newOrder": "https://acme.godaddy.com/v1/acme/new-order",
+  "revokeCert": "https://acme.godaddy.com/v1/acme/revoke-cert",
+  "keyChange": "https://acme.godaddy.com/v1/acme/key-change",
+  "meta": {
+    "termsOfService": "https://certs.godaddy.com/repository/certificate_practices/en/StarfieldSubscriberAgreement.pdf",
+    "caaIdentities": [
+      "godaddy.com",
+      "starfieldtech.com"
+    ],
+    "externalAccountRequired": true
+  }
+}
+2025-06-27 06:44:06,831:DEBUG:acme.client:Requesting fresh nonce
+2025-06-27 06:44:06,832:DEBUG:acme.client:Sending HEAD request to https://acme.godaddy.com/v1/acme/new-nonce.
+2025-06-27 06:44:06,833:DEBUG:urllib3.connectionpool:Resetting dropped connection: acme.godaddy.com
+2025-06-27 06:44:07,596:DEBUG:urllib3.connectionpool:https://acme.godaddy.com:443 "HEAD /v1/acme/new-nonce HTTP/1.1" 200 0
+2025-06-27 06:44:07,597:DEBUG:acme.client:Received response:
+HTTP 200
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+replay-nonce: ZXlKcmFXUWlPaUkxTWpRek1qY3pOVGdpTENKaGJHY2lPaUpJVXpJMU5pSjkuZXlKb2IzTjBJam9pY0RNZ01ERXhJaXdpWjNWcFpDSTZJalE1WWpRMFptSXhMVFJrTURNdE5HVTRaQzFoWmpsakxXUTNNR1JrT0dWbFpXSXdaU0lzSW1saGRDSTZNVGMxTVRBd05qWTBOeXdpZEdsa0lqbzBNalV6TURCOS5BUjlBbWI3alZCZ19vZmZZak5wLU1qclJkcDliRzBSa0lKektYZ0JlVUg4SVdvaU40QQ
+cache-control: no-store
+link: <https://acme.godaddy.com/v1/acme/directory>;rel="index"
+content-length: 0
+date: Fri, 27 Jun 2025 06:44:06 GMT
+
+
+2025-06-27 06:44:07,598:DEBUG:acme.client:Storing nonce: ZXlKcmFXUWlPaUkxTWpRek1qY3pOVGdpTENKaGJHY2lPaUpJVXpJMU5pSjkuZXlKb2IzTjBJam9pY0RNZ01ERXhJaXdpWjNWcFpDSTZJalE1WWpRMFptSXhMVFJrTURNdE5HVTRaQzFoWmpsakxXUTNNR1JrT0dWbFpXSXdaU0lzSW1saGRDSTZNVGMxTVRBd05qWTBOeXdpZEdsa0lqbzBNalV6TURCOS5BUjlBbWI3alZCZ19vZmZZak5wLU1qclJkcDliRzBSa0lKektYZ0JlVUg4SVdvaU40QQ
+2025-06-27 06:44:07,599:DEBUG:acme.client:JWS payload:
+b'{\n  "termsOfServiceAgreed": true,\n  "externalAccountBinding": {\n    "protected": "eyJhbGciOiAiSFMyNTYiLCAia2lkIjogImQ0OTcxMWQ5LTFhN2ItNDUzZC1iMGM0LTZkZjU4OTJiMzdlZSIsICJ1cmwiOiAiaHR0cHM6Ly9hY21lLmdvZGFkZHkuY29tL3YxL2FjbWUvbmV3LWFjY291bnQifQ",\n    "signature": "4Lou6JFF30KXtLoJbzzkK0dC9ucc_rBS6oLqU_RW53k",\n    "payload": "eyJuIjogInJ2Rzlhd0RSeE15SDkzYUEySjQyeE5TaUw5R3lvd281TXRTRzRVQjR1UkJraWRXejJGYzFrRW51anJKQzdBeGZIM2RCR0Jwa3dvYUhEdmdSMFNWSWgzTFh4Ql91VjlVVzVNaVdLX0ktSGljanZjYkVGMzlRTXVhQ2NBX1ozaTViVzBGSS1uWndIUFRjd0lnWXFPdTAzQVgtNG1YYS1kQmpHdl9YUXViaUo3aGNhdVZqbzA5b1gzZ0hXUWdibVR1RkVwRkhrd2h6dXkxMHNtdDFXX2JQV05NdkxZd2JjRU5ubkVWMVhQNVhMT1phU3psWDhjUE1weURuUGE1SzBIQkVYVjF2WVBTNmZSUzYyNThmWWR4d3JUSUZOUkJTbEU0cEQ0RE1KSlVDLXd6TUZnR2Q5LU9YX29FaWFPQ1gzZklOLTJJOVZXbWxPTnBZWllGQ3dFSVdWUSIsICJlIjogIkFRQUIiLCAia3R5IjogIlJTQSJ9"\n  }\n}'
+2025-06-27 06:44:07,608:DEBUG:acme.client:Sending POST request to https://acme.godaddy.com/v1/acme/new-account:
+{
+  "protected": "eyJhbGciOiAiUlMyNTYiLCAiandrIjogeyJuIjogInJ2Rzlhd0RSeE15SDkzYUEySjQyeE5TaUw5R3lvd281TXRTRzRVQjR1UkJraWRXejJGYzFrRW51anJKQzdBeGZIM2RCR0Jwa3dvYUhEdmdSMFNWSWgzTFh4Ql91VjlVVzVNaVdLX0ktSGljanZjYkVGMzlRTXVhQ2NBX1ozaTViVzBGSS1uWndIUFRjd0lnWXFPdTAzQVgtNG1YYS1kQmpHdl9YUXViaUo3aGNhdVZqbzA5b1gzZ0hXUWdibVR1RkVwRkhrd2h6dXkxMHNtdDFXX2JQV05NdkxZd2JjRU5ubkVWMVhQNVhMT1phU3psWDhjUE1weURuUGE1SzBIQkVYVjF2WVBTNmZSUzYyNThmWWR4d3JUSUZOUkJTbEU0cEQ0RE1KSlVDLXd6TUZnR2Q5LU9YX29FaWFPQ1gzZklOLTJJOVZXbWxPTnBZWllGQ3dFSVdWUSIsICJlIjogIkFRQUIiLCAia3R5IjogIlJTQSJ9LCAibm9uY2UiOiAiWlhsS2NtRlhVV2xQYVVreFRXcFJlazFxWTNwT1ZHZHBURU5LYUdKSFkybFBhVXBKVlhwSk1VNXBTamt1WlhsS2IySXpUakJKYW05cFkwUk5aMDFFUlhoSmFYZHBXak5XY0ZwRFNUWkphbEUxV1dwUk1GcHRTWGhNVkZKclRVUk5kRTVIVlRSYVF6Rm9XbXBzYWt4WFVUTk5SMUpyVDBkV2JGcFhTWGRhVTBselNXMXNhR1JEU1RaTlZHTXhUVlJCZDA1cVdUQk9lWGRwWkVkc2EwbHFiekJOYWxWNlRVUkNPUzVCVWpsQmJXSTNhbFpDWjE5dlptWlphazV3TFUxcWNsSmtjRGxpUnpCU2EwbEtla3RZWjBKbFZVZzRTVmR2YVU0MFFRIiwgInVybCI6ICJodHRwczovL2FjbWUuZ29kYWRkeS5jb20vdjEvYWNtZS9uZXctYWNjb3VudCJ9",
+  "signature": "l-TxISUhXvWHVvrEzqEgu-HU87Kmw-BSDdNAWs4eFbDz0JOB_nVORwppokGmHBK1PIJnGJLbh_u_2ZGK1VwdT0YZsxH7tEEpRGL26p_SODysq2CegxwD4755Jw1Xc_NP-5ZU1lOi3uKettzj164lCyn5oh2wRzouJ5TkLundPylr58w6Nw83UO2GJZDd0f0A9lG7piZOHlVTrYqnSSxE8nuFNzfRqRKsxqfjwps9GI3fkG1zxjU_dFU80-LhTn7gpN0S1ktrRYy35e58h0mMjvJ2ia7hO2sj7AONVKqFyHvPdfgHkILwipibd0exEVuPYM71aq8ZrKZf0RaHCNo42Q",
+  "payload": "ewogICJ0ZXJtc09mU2VydmljZUFncmVlZCI6IHRydWUsCiAgImV4dGVybmFsQWNjb3VudEJpbmRpbmciOiB7CiAgICAicHJvdGVjdGVkIjogImV5SmhiR2NpT2lBaVNGTXlOVFlpTENBaWEybGtJam9nSW1RME9UY3hNV1E1TFRGaE4ySXRORFV6WkMxaU1HTTBMVFprWmpVNE9USmlNemRsWlNJc0lDSjFjbXdpT2lBaWFIUjBjSE02THk5aFkyMWxMbWR2WkdGa1pIa3VZMjl0TDNZeEwyRmpiV1V2Ym1WM0xXRmpZMjkxYm5RaWZRIiwKICAgICJzaWduYXR1cmUiOiAiNExvdTZKRkYzMEtYdExvSmJ6emtLMGRDOXVjY19yQlM2b0xxVV9SVzUzayIsCiAgICAicGF5bG9hZCI6ICJleUp1SWpvZ0luSjJSemxoZDBSU2VFMTVTRGt6WVVFeVNqUXllRTVUYVV3NVIzbHZkMjgxVFhSVFJ6UlZRalIxVWtKcmFXUlhlakpHWXpGclJXNTFhbkpLUXpkQmVHWklNMlJDUjBKd2EzZHZZVWhFZG1kU01GTldTV2d6VEZoNFFsOTFWamxWVnpWTmFWZExYMGt0U0dsamFuWmpZa1ZHTXpsUlRYVmhRMk5CWDFvemFUVmlWekJHU1MxdVduZElVRlJqZDBsbldYRlBkVEF6UVZndE5HMVlZUzFrUW1wSGRsOVlVWFZpYVVvM2FHTmhkVlpxYnpBNWIxZ3paMGhYVVdkaWJWUjFSa1Z3UmtocmQyaDZkWGt4TUhOdGRERlhYMkpRVjA1TmRreFpkMkpqUlU1dWJrVldNVmhRTlZoTVQxcGhVM3BzV0RoalVFMXdlVVJ1VUdFMVN6QklRa1ZZVmpGMldWQlRObVpTVXpZeU5UaG1XV1I0ZDNKVVNVWk9Va0pUYkVVMGNFUTBSRTFLU2xWRExYZDZUVVpuUjJRNUxVOVlYMjlGYVdGUFExZ3paa2xPTFRKSk9WWlhiV3hQVG5CWldsbEdRM2RGU1ZkV1VTSXNJQ0psSWpvZ0lrRlJRVUlpTENBaWEzUjVJam9nSWxKVFFTSjkiCiAgfQp9"
+}
+2025-06-27 06:44:07,785:DEBUG:urllib3.connectionpool:https://acme.godaddy.com:443 "POST /v1/acme/new-account HTTP/1.1" 201 924
+2025-06-27 06:44:07,786:DEBUG:acme.client:Received response:
+HTTP 201
+vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+replay-nonce: ZXlKcmFXUWlPaUkxTWpRek1qY3pOVGdpTENKaGJHY2lPaUpJVXpJMU5pSjkuZXlKb2IzTjBJam9pY0RNZ01ERXlJaXdpWjNWcFpDSTZJbVJsTWprM01tUTJMVFJrTUdJdE5EUmlNaTFpTWpreUxUZzBZalUxWm1SbE1qSTFOeUlzSW1saGRDSTZNVGMxTVRBd05qWTBOeXdpZEdsa0lqbzROMzAuQVI5QW1iNzBZbkZLN1NncV9LWjBrRFR1azNXZWZvOVh3Mkd2V20xRWJFaUxKRWladFE
+cache-control: no-store
+link: <https://acme.godaddy.com/v1/acme/directory>;rel="index"
+location: https://acme.godaddy.com/v1/acme/accounts/3273
+content-type: application/json;charset=UTF-8
+content-length: 924
+date: Fri, 27 Jun 2025 06:44:07 GMT
+
+{
+  "status": "valid",
+  "termsOfServiceAgreed": true,
+  "externalAccountBinding": {
+    "protected": "eyJhbGciOiAiSFMyNTYiLCAia2lkIjogImQ0OTcxMWQ5LTFhN2ItNDUzZC1iMGM0LTZkZjU4OTJiMzdlZSIsICJ1cmwiOiAiaHR0cHM6Ly9hY21lLmdvZGFkZHkuY29tL3YxL2FjbWUvbmV3LWFjY291bnQifQ",
+    "payload": "eyJuIjogInJ2Rzlhd0RSeE15SDkzYUEySjQyeE5TaUw5R3lvd281TXRTRzRVQjR1UkJraWRXejJGYzFrRW51anJKQzdBeGZIM2RCR0Jwa3dvYUhEdmdSMFNWSWgzTFh4Ql91VjlVVzVNaVdLX0ktSGljanZjYkVGMzlRTXVhQ2NBX1ozaTViVzBGSS1uWndIUFRjd0lnWXFPdTAzQVgtNG1YYS1kQmpHdl9YUXViaUo3aGNhdVZqbzA5b1gzZ0hXUWdibVR1RkVwRkhrd2h6dXkxMHNtdDFXX2JQV05NdkxZd2JjRU5ubkVWMVhQNVhMT1phU3psWDhjUE1weURuUGE1SzBIQkVYVjF2WVBTNmZSUzYyNThmWWR4d3JUSUZOUkJTbEU0cEQ0RE1KSlVDLXd6TUZnR2Q5LU9YX29FaWFPQ1gzZklOLTJJOVZXbWxPTnBZWllGQ3dFSVdWUSIsICJlIjogIkFRQUIiLCAia3R5IjogIlJTQSJ9",
+    "signature": "4Lou6JFF30KXtLoJbzzkK0dC9ucc_rBS6oLqU_RW53k"
+  },
+  "orders": "https://acme.godaddy.com/v1/acme/accounts/3273/orders"
+}
+2025-06-27 06:44:07,786:DEBUG:acme.client:Storing nonce: ZXlKcmFXUWlPaUkxTWpRek1qY3pOVGdpTENKaGJHY2lPaUpJVXpJMU5pSjkuZXlKb2IzTjBJam9pY0RNZ01ERXlJaXdpWjNWcFpDSTZJbVJsTWprM01tUTJMVFJrTUdJdE5EUmlNaTFpTWpreUxUZzBZalUxWm1SbE1qSTFOeUlzSW1saGRDSTZNVGMxTVRBd05qWTBOeXdpZEdsa0lqbzROMzAuQVI5QW1iNzBZbkZLN1NncV9LWjBrRFR1azNXZWZvOVh3Mkd2V20xRWJFaUxKRWladFE
+2025-06-27 06:44:07,789:DEBUG:certbot._internal.display.obj:Notifying user: Account registered.

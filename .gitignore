@@ -1,0 +1,8 @@
+#Certbot/Let's Encrypt
+data/certbot/conf/ data/certbot/log/ data/certbot/www/
+
+#Nginx logs
+data/html/ *.log
+
+#Archivos temporales
+*.swp *.swo

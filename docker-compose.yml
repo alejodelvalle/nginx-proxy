@@ -1,0 +1,43 @@
+services:
+  nginx-proxy:
+    image: nginx:stable
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./data/conf.d:/etc/nginx/conf.d
+      - ./data/html:/usr/share/nginx/html
+      - ./data/certbot/www:/var/www/certbot
+      - ./data/certbot/conf:/etc/letsencrypt
+    networks:
+      - gtv_net
+
+  certbot:
+    build:
+      context: .
+      dockerfile: Dockerfile-certbot
+    container_name: certbot
+    restart: "no"
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/log:/var/log/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+      - ./godaddy.ini:/godaddy.ini:ro
+    entrypoint: >
+      sh -c "certbot certonly --dns-godaddy 
+             --dns-godaddy-credentials /godaddy.ini 
+             --dns-godaddy-propagation-seconds 60 
+             -d gestionatusvotos.com 
+             -d '*.gestionatusvotos.com' 
+             --non-interactive --agree-tos 
+             -m admin@gestionatusvotos.com 
+             --server https://acme-v02.api.letsencrypt.org/directory"
+    networks:
+      - gtv_net
+
+networks:
+  gtv_net:
+    external: true
